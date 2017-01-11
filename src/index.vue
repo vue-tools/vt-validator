@@ -85,7 +85,7 @@
                 type = this.element.type
                 tagName = this.element.tagName.toUpperCase()
 
-                if(tagName === 'SELECT' || type === 'radio' || type === 'checkbox' || type === 'file') {
+                if(tagName === 'SELECT' || type === 'RADIO' || type === 'CHECKBOX' || type === 'FILE') {
                     eventName = 'change'
                 }
                 
@@ -98,7 +98,7 @@
                 type = this.element.type
                 tagName = this.element.tagName.toUpperCase()
 
-                if(tagName === 'SELECT' || type === 'radio' || type === 'checkbox' || type === 'file') {
+                if(tagName === 'SELECT' || type === 'RADIO' || type === 'CHECKBOX' || type === 'FILE') {
                     eventName = 'change'
                 }
 
