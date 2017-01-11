@@ -105,8 +105,21 @@
                 this.element.removeEventListener(eventName, this.execute)
             }
         },
+        updated() {
+            if(!getElementByForm(this.$el)) {
+                console.error('Validator component must within the form element')
+                return
+            }
+
+            if(!(this.element = getElementByInput(this.$el))) {
+                console.error('Validator component must contain the input element')
+                return
+            }
+
+            this.rules = parseRules(this.$el, this.validators)
+        },
         mounted() {
-            if(!(this.form = getElementByForm(this.$el))) {
+            if(!getElementByForm(this.$el)) {
                 console.error('Validator component must within the form element')
                 return
             }
