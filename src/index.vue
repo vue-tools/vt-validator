@@ -58,7 +58,17 @@
                     }
                 }
 
-                this.$emit('validated', result, this.$el)
+                if (typeof result === 'boolean') {
+                    this.$emit('validated', {
+                        rule: '',
+                        message: '',
+                        name: this.name,
+                        element: this.element,
+                        value: this.element.value
+                    }, this.$el)
+                } else {
+                    this.$emit('validated', result, this.$el)
+                }
 
                 return result
             },
