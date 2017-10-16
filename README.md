@@ -39,13 +39,13 @@ Validator.getRule('mobile'); // 获得手机号规则的实现
 ### addRule
 
 根据规则名，添加一个规则。
-
+```
 参数:
     name: 规则名
     operator: 规则实现，正则表达式或返回值为Boolean的函数
     message: 规则的提示信息
     silent: 如果该规则名对应的实现已经存在，是否强制覆盖实现，默认值 false
-
+```
 Validator.addRule('text', /\s/g, '{{name}}不能有空格'); // 添加一个名为 text 的规则
 
 ### setMessage
