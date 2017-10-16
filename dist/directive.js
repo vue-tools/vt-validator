@@ -21,7 +21,7 @@ var refs = void 0,
 exports.refs = refs = {};
 exports.definition = definition = {
     bind: function bind(el, binding, vnode) {
-        el.dataset.novalidate = el.getAttribute('novalidate');
+        el.binding = binding;
         el.setAttribute('novalidate', 'novalidate');
 
         el.callback = function (e) {
@@ -64,20 +64,18 @@ exports.definition = definition = {
                 }
             }
 
-            binding.value(count === components.length ? null : result, e);
+            el.binding.value(count === components.length ? null : result, e);
         };
 
         el.addEventListener('submit', el.callback, false);
     },
+    componentUpdated: function componentUpdated(el, binding, vnode) {
+        el.binding = binding;
+    },
     unbind: function unbind(el, binding, vnode) {
-        if (el.dataset.novalidate === null) {
-            el.removeAttribute('novalidate');
-        } else {
-            el.setAttribute('novalidate', el.dataset.novalidate);
-        }
-
         el.removeEventListener('submit', el.callback, false);
-        delete el.dataset.novalidate;
+        delete el.binding;
+        delete el.callback;
     }
 };
 
