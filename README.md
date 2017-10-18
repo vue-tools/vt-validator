@@ -58,13 +58,13 @@ Validator.setMessage('mobile', '手机号格式不正确'); // 修改手机号�
 
 ```example
 <template>
-    // v-submit 指令，用于检测规表单值是否适配规则
+    <!-- v-submit 指令，用于检测规表单值是否适配规则 -->
     <form v-submit.prevent="done">
-        // 使用 required, text, email, minlength规则
+        <!-- 使用 required, text, email, minlength规则 -->
         <Validator name="用户名" required text email minlength="6">
             <input type="text">
         </Validator>
-        // 使用 required 和 mobile 规则
+        <!-- 使用 required 和 mobile 规则 -->
         <Validator name="手机号" required mobile>
             <input type="tel">
         </Validator>
@@ -113,17 +113,46 @@ Validator.setMessage('mobile', '手机号格式不正确'); // 修改手机号�
 
 ## Rules
 
-内置默认规则
-
-```
-    mobile //判断手机号
-    email //判断邮箱
-    url //判断链接
-    date //判断日期
-    number //判断纯数字
-    required //判断是否填写
-    min //判断最小值
-    max //判断最大值
-    minlength //判断最小长度
-    maxlength //判断最大长度
+```interface
+props:
+  mobile:
+    type: Boolean
+    default: ''
+    description: 判断手机号
+  email:
+    type: Boolean
+    default: ''
+    description: 判断邮箱
+  url:
+    type: Boolean
+    default: ''
+    description: 判断链接
+  date:
+    type: Boolean
+    default: ''
+    description: 判断日期
+  number:
+    type: Boolean
+    default: ''
+    description: 判断纯数字
+  required:
+    type: Boolean
+    default: ''
+    description: 判断是否填写
+  min:
+    type: Number
+    default: ''
+    description: 判断最小值
+  max:
+    type: Number
+    default: ''
+    description: 判断最大值
+  minlength:
+    type: Number
+    default: ''
+    description: 判断最小长度
+  maxlength:
+    type: Number
+    default: ''
+    description: 判断最大长度
 ```
